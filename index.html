@@ -277,10 +277,12 @@ function jogoCaixa(j){ const u1=(j.siglaUFUm||'').trim(), u2=(j.siglaUFDois||'')
   return {seq:j.nuSequencial, casa:bonito(j.nomeEquipeUm)+(u1?'/'+u1:''), fora:bonito(j.nomeEquipeDois)+(u2?'/'+u2:''), paisCasa:(j.siglaPaisUm||'').trim(), paisFora:(j.siglaPaisDois||'').trim(), info:((j.diaSemana||'').slice(0,3)+' '+(j.dtJogo||'').slice(0,5)).trim()}; }
 async function caixaDireto(){
   const r=await fetch(CAIXA+'/programacao',{cache:'no-store'}); if(!r.ok) throw new Error(r.status);
-  const d=await r.json(); const jogos=(d.listaJogos||[]).slice().sort((a,b)=>(a.nuSequencial||0)-(b.nuSequencial||0));
-  if(jogos.length!==14) throw new Error('grade incompleta');
-  const c={numero:+d.nuConcurso, fimApostas:(d.dataFimApostas||'')+' '+(d.horarioFimApostas||'')+'h', jogos:jogos.map(jogoCaixa), fonte:'caixa-direto'};
-  S.st.manuais[String(c.numero)]=c; salvar(); return c;
+  const d=await r.json(); const itens=Array.isArray(d)?d:[d]; let ultimo=null;
+  for(const x of itens){ const jogos=(x.listaJogos||[]).slice().sort((a,b)=>(a.nuSequencial||0)-(b.nuSequencial||0)); if(jogos.length!==14) continue;
+    const c={numero:+x.nuConcurso, fimApostas:(x.dataFimApostas||'')+' '+(x.horarioFimApostas||'')+'h', jogos:jogos.map(jogoCaixa), fonte:'caixa-direto'};
+    S.st.manuais[String(c.numero)]=c; if(!ultimo||c.numero>ultimo.numero) ultimo=c; }
+  if(!ultimo) throw new Error('grade incompleta');
+  salvar(); return ultimo;
 }
 async function resultadoDireto(num){
   const r=await fetch(CAIXA+'/'+num,{cache:'no-store'}); if(!r.ok) throw new Error(r.status);
