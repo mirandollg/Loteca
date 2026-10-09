@@ -130,5 +130,71 @@
   "arquivo": "escudos/vitoria-ba.jpg",
   "origem": "https://escudosfc.com.br/images/vitoria_rug.jpg",
   "achado": "Vitória"
+ },
+ "arsenal": {
+  "nome": "Arsenal",
+  "arquivo": "escudos/arsenal.png",
+  "origem": "https://escudosfc.com.br/images/arsenal_ce.png",
+  "achado": "Arsenal"
+ },
+ "athletico-pr": {
+  "nome": "Athletico/PR",
+  "arquivo": "escudos/athletico-pr.png",
+  "origem": "https://escudosfc.com.br/images/atlpr.png",
+  "achado": "Athletico Paranaense"
+ },
+ "botafogo-rj": {
+  "nome": "Botafogo/RJ",
+  "arquivo": "escudos/botafogo-rj.gif",
+  "origem": "https://escudosfc.com.br/images/botafogo.gif",
+  "achado": "Botafogo"
+ },
+ "bragantino-sp": {
+  "nome": "Bragantino/SP",
+  "arquivo": "escudos/bragantino-sp.png",
+  "origem": "https://escudosfc.com.br/images/bragantino.png",
+  "achado": "Red Bull Bragantino"
+ },
+ "chapecoense-sc": {
+  "nome": "Chapecoense/SC",
+  "arquivo": "escudos/chapecoense-sc.png",
+  "origem": "https://escudosfc.com.br/images/chapeco.png",
+  "achado": "Chapecoense"
+ },
+ "coritiba-pr": {
+  "nome": "Coritiba/PR",
+  "arquivo": "escudos/coritiba-pr.png",
+  "origem": "https://escudosfc.com.br/images/coritiba.png",
+  "achado": "Coritiba"
+ },
+ "cruzeiro-mg": {
+  "nome": "Cruzeiro/MG",
+  "arquivo": "escudos/cruzeiro-mg.png",
+  "origem": "https://escudosfc.com.br/images/cruzeiro.png",
+  "achado": "Cruzeiro"
+ },
+ "manchester-united": {
+  "nome": "Manchester United",
+  "arquivo": "escudos/manchester-united.png",
+  "origem": "https://escudosfc.com.br/images/manchester.png",
+  "achado": "Manchester United"
+ },
+ "milan": {
+  "nome": "Milan",
+  "arquivo": "escudos/milan.gif",
+  "origem": "https://escudosfc.com.br/images/milan_rs.gif",
+  "achado": "Milan"
+ },
+ "novorizontino-sp": {
+  "nome": "Novorizontino/SP",
+  "arquivo": "escudos/novorizontino-sp.png",
+  "origem": "https://escudosfc.com.br/images/gen_sp.png",
+  "achado": "Novorizontino"
+ },
+ "sevilla": {
+  "nome": "Sevilla",
+  "arquivo": "escudos/sevilla.png",
+  "origem": "https://escudosfc.com.br/images/sevilla.png",
+  "achado": "Sevilla"
  }
 }
