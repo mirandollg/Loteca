@@ -268,16 +268,41 @@ async function boot(){
   render();
   await atualizarGrade(false);
 }
+// Busca direta na Caixa pelo navegador (plano B quando o robô não conseguiu)
+const CAIXA='https://servicebus2.caixa.gov.br/portaldeloterias/api/loteca';
+const ACENTOS={atletico:'atlético',america:'américa',sao:'são',gremio:'grêmio',cuiaba:'cuiabá',maringa:'maringá',ferroviaria:'ferroviária',vitoria:'vitória',ceara:'ceará',goias:'goiás',avai:'avaí',criciuma:'criciúma',parana:'paraná',nautico:'náutico',operario:'operário',suica:'suíça',grecia:'grécia',servia:'sérvia',eslovenia:'eslovênia',eslovaquia:'eslováquia',republica:'república',pais:'país',italia:'itália',belgica:'bélgica',croacia:'croácia',japao:'japão',colombia:'colômbia',mexico:'méxico',austria:'áustria',polonia:'polônia',romenia:'romênia',ucrania:'ucrânia',suecia:'suécia',finlandia:'finlândia',islandia:'islândia',franca:'frança',escocia:'escócia',bulgaria:'bulgária',albania:'albânia',macedonia:'macedônia',bosnia:'bósnia',georgia:'geórgia',camaroes:'camarões',africa:'áfrica',arabia:'arábia',canada:'canadá',panama:'panamá',bolivia:'bolívia',alaves:'alavés',leganes:'leganés',penarol:'peñarol'};
+const PEQ=new Set(['de','da','do','das','dos','e']);
+function bonito(n){ n=(n||'').trim().replace(/\/[A-Z]{2,3}$/,''); return n.toLowerCase().split(/\s+/).filter(Boolean).map((w,i)=>{ w=ACENTOS[w]||w; return (PEQ.has(w)&&i)?w:w[0].toUpperCase()+w.slice(1); }).join(' '); }
+function jogoCaixa(j){ const u1=(j.siglaUFUm||'').trim(), u2=(j.siglaUFDois||'').trim();
+  return {seq:j.nuSequencial, casa:bonito(j.nomeEquipeUm)+(u1?'/'+u1:''), fora:bonito(j.nomeEquipeDois)+(u2?'/'+u2:''), paisCasa:(j.siglaPaisUm||'').trim(), paisFora:(j.siglaPaisDois||'').trim(), info:((j.diaSemana||'').slice(0,3)+' '+(j.dtJogo||'').slice(0,5)).trim()}; }
+async function caixaDireto(){
+  const r=await fetch(CAIXA+'/programacao',{cache:'no-store'}); if(!r.ok) throw new Error(r.status);
+  const d=await r.json(); const jogos=(d.listaJogos||[]).slice().sort((a,b)=>(a.nuSequencial||0)-(b.nuSequencial||0));
+  if(jogos.length!==14) throw new Error('grade incompleta');
+  const c={numero:+d.nuConcurso, fimApostas:(d.dataFimApostas||'')+' '+(d.horarioFimApostas||'')+'h', jogos:jogos.map(jogoCaixa), fonte:'caixa-direto'};
+  S.st.manuais[String(c.numero)]=c; salvar(); return c;
+}
+async function resultadoDireto(num){
+  const r=await fetch(CAIXA+'/'+num,{cache:'no-store'}); if(!r.ok) throw new Error(r.status);
+  const d=await r.json(); const l=(d.listaResultadoEquipeEsportiva||[]).slice().sort((a,b)=>(a.nuSequencial||0)-(b.nuSequencial||0));
+  if(l.length!==14 || !(d.listaRateioPremio||[]).length) throw new Error('não apurado');
+  const res=g=>g[0]>g[1]?'1':g[1]>g[0]?'2':'X';
+  return {resultados:l.map(j=>res([j.nuGolEquipeUm,j.nuGolEquipeDois])), placares:l.map(j=>j.nuGolEquipeUm+' x '+j.nuGolEquipeDois),
+          rateio:(d.listaRateioPremio||[]).map(x=>({faixa:x.descricaoFaixa,ganhadores:x.numeroDeGanhadores,premio:x.valorPremio}))};
+}
 async function atualizarGrade(manual){
   if(manual){ S.aviso='Atualizando…'; render(); }
   const [c, e, s] = await Promise.allSettled([getJSON('dados/concursos.json'), getJSON('dados/escudos.json'), getJSON('dados/status.json')]);
-  if(c.status==='fulfilled') S.remoto=c.value||{}; 
+  if(c.status==='fulfilled') S.remoto=c.value||{};
   if(e.status==='fulfilled') S.esc=e.value||{};
   if(s.status==='fulfilled') S.status=s.value||{};
+  // plano B: se o robô não trouxe a grade, o próprio aparelho tenta buscar na Caixa
+  let direto=null, erroDireto='';
+  if(!Object.keys(S.remoto).length || manual){ try{ direto=await caixaDireto(); }catch(err){ erroDireto=String(err.message||err); } }
   const ns=nums();
   if(ns.length && (!S.conc || !concursos()[String(S.conc)] || manual)) S.conc=ns[0];
-  if(c.status!=='fulfilled' && !ns.length) S.aviso='Ainda não há grade publicada. Rode o robô no GitHub (Actions > Robô da Loteca > Run workflow) ou cole a grade no rodapé.';
-  else S.aviso = manual ? 'Atualizado'+(S.status.atualizado?' (robô rodou em '+S.status.atualizado+')':'')+'.' : '';
+  if(!ns.length) S.aviso='Não consegui a grade nem pelo robô nem direto da Caixa'+(S.status.erroGrade?' (robô: '+S.status.erroGrade.slice(0,120)+')':'')+'. Cole a grade no rodapé por enquanto.';
+  else S.aviso = manual ? 'Atualizado'+(direto?' direto da Caixa':'')+(S.status.atualizado?' (robô rodou em '+S.status.atualizado+')':'')+'.' : '';
   render(); renderEscudos();
 }
 async function saveGrade(){
@@ -396,10 +421,12 @@ function viewVolantes(c){
 }
 function volStatus(v,res){ let miss=0; v.forEach((s,i)=>{ if(res[i] && !s.includes(res[i])) miss++; }); return {miss}; }
 function tally(vols,res){ let a14=0,a13=0; vols.forEach(v=>{ const m=volStatus(v,res).miss; if(m===0)a14++; if(m<=1)a13++; }); return {a14,a13}; }
-function resultadoOficial(){
+async function resultadoOficial(){
   const r=S.remoto[String(S.conc)];
-  if(r && r.resultados){ saveAposta({resultados:r.resultados.slice(), rateio:r.rateio, placares:r.placares}); S.aviso='Resultado oficial carregado.'; }
-  else S.aviso='A Caixa ainda não publicou o resultado deste concurso. O robô confere a cada 2 horas.';
+  if(r && r.resultados){ saveAposta({resultados:r.resultados.slice(), rateio:r.rateio, placares:r.placares}); S.aviso='Resultado oficial carregado.'; render(); return; }
+  S.aviso='Buscando o resultado na Caixa…'; render();
+  try{ const d=await resultadoDireto(S.conc); saveAposta(d); S.aviso='Resultado oficial carregado direto da Caixa.'; }
+  catch(e){ S.aviso='A Caixa ainda não publicou o resultado deste concurso (ou não respondeu). Tente mais tarde.'; }
   render();
 }
 function viewConferir(c){
