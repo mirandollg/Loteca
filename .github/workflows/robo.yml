@@ -1,0 +1,49 @@
+name: Robô da Loteca
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"     # a cada 2 horas (horário UTC)
+  workflow_dispatch:            # botão "Run workflow" para rodar na hora
+    inputs:
+      indice:
+        description: "Remontar o índice de escudos agora?"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: robo-loteca
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar grade, resultados e escudos
+        run: |
+          if [ "${{ github.event.inputs.indice }}" = "true" ]; then
+            python robo.py --indice
+          else
+            python robo.py
+          fi
+
+      - name: Salvar no repositório
+        run: |
+          git config user.name "robo-loteca"
+          git config user.email "robo-loteca@users.noreply.github.com"
+          git add dados escudos
+          if git diff --cached --quiet; then
+            echo "Nada mudou."
+          else
+            git commit -m "Atualiza dados da Loteca $(date -u +'%d/%m %H:%M')"
+            git push
+          fi
