@@ -33,8 +33,9 @@ ESC_START = ["bras.htm", "bra.htm", "index.html"]
 ESC_MAX_PAGES = int(os.environ.get("PAGINAS", "400"))
 INDICE_DIAS = 7          # remonta o índice de escudos uma vez por semana
 GUARDAR = 12             # quantos concursos manter no arquivo
-UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 LotecaPessoal/1.0",
-      "Accept": "*/*", "Accept-Language": "pt-BR,pt;q=0.9"}
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36",
+      "Accept": "application/json, text/plain, */*", "Accept-Language": "pt-BR,pt;q=0.9"}
+CAIXA_HDR = {"Origin": "https://loterias.caixa.gov.br", "Referer": "https://loterias.caixa.gov.br/"}
 # ------------------------------------------------------------------ rede
 def _ssl_ctx():
     try:
@@ -43,11 +44,44 @@ def _ssl_ctx():
     except Exception:
         return ssl.create_default_context()
 SSL = _ssl_ctx()
+SSL_FROUXO = ssl._create_unverified_context()   # só para a API pública da Caixa, se a cadeia de certificados dela vier incompleta
+
+def _abrir(url, timeout, ctx, extra):
+    req = urllib.request.Request(url, headers=dict(UA, **extra))
+    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as r:
+        return r.read(), r.headers.get("Content-Type", "")
 
 def http_get(url, timeout=25):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout, context=SSL) as r:
-        return r.read(), r.headers.get("Content-Type", "")
+    caixa = "caixa.gov.br" in url
+    extra = CAIXA_HDR if caixa else {}
+    erros = []
+    for tentativa in range(3):
+        try:
+            return _abrir(url, timeout, SSL, extra)
+        except Exception as e:
+            erros.append(repr(e))
+            if caixa and ("CERTIFICATE" in repr(e).upper() or "SSL" in repr(e).upper()):
+                try:
+                    return _abrir(url, timeout, SSL_FROUXO, extra)
+                except Exception as e2:
+                    erros.append("sem verificação: " + repr(e2))
+            if not caixa:
+                break
+            time.sleep(3 * (tentativa + 1))
+    if caixa:   # último recurso: o curl do sistema, que usa outra biblioteca de rede
+        try:
+            import subprocess
+            cmd = ["curl", "-sS", "-L", "--compressed", "-m", str(timeout), "-A", UA["User-Agent"],
+                   "-H", "Accept: " + UA["Accept"], "-H", "Origin: " + CAIXA_HDR["Origin"], "-H", "Referer: " + CAIXA_HDR["Referer"],
+                   "-w", "\n%{http_code}", url]
+            out = subprocess.run(cmd, capture_output=True, timeout=timeout + 10)
+            corpo, _, cod = out.stdout.rpartition(b"\n")
+            if cod.strip() == b"200" and corpo:
+                return corpo, "application/json"
+            erros.append("curl: HTTP %s %s" % (cod.decode(errors="replace").strip(), out.stderr.decode(errors="replace").strip()[:200]))
+        except Exception as e:
+            erros.append("curl: " + repr(e))
+    raise RuntimeError(" | ".join(erros)[-600:])
 
 def http_json(url):
     raw, _ = http_get(url)
@@ -150,7 +184,9 @@ def resultado(num):
             "rateio": [{"faixa": r.get("descricaoFaixa"), "ganhadores": r.get("numeroDeGanhadores"), "premio": r.get("valorPremio")}
                        for r in (d.get("listaRateioPremio") or [])]}
 
+ERRO_GRADE = ""
 def atualizar_concursos():
+    global ERRO_GRADE
     conc = ler(CONC_FILE, {})
     try:
         p = programacao()
@@ -158,6 +194,7 @@ def atualizar_concursos():
         conc[k] = dict(conc.get(k, {}), **p)
         print("Grade do concurso", k, "ok")
     except Exception as e:
+        ERRO_GRADE = str(e)[:300]
         print("Grade: não consegui buscar (%s)" % e)
     # resultados: concursos guardados que ainda não têm resultado
     for k in sorted(conc, key=int, reverse=True)[:4]:
@@ -449,4 +486,4 @@ if __name__ == "__main__":
         "atualizado": time.strftime("%d/%m/%Y %H:%M", time.gmtime(time.time() - 3 * 3600)),   # horário de Brasília
         "concursos": sorted(conc, key=int), "escudos": len(ler(ESC_FILE, {})),
         "indice": len(d.get("itens", [])) if isinstance(d, dict) else 0,
-        "indiceGerado": d.get("gerado", "") if isinstance(d, dict) else ""})
+        "indiceGerado": d.get("gerado", "") if isinstance(d, dict) else "", "erroGrade": ERRO_GRADE})
