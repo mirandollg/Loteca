@@ -161,13 +161,21 @@ def resultado_de(g1, g2):
     return "1" if g1 > g2 else ("2" if g2 > g1 else "X")
 
 
-def programacao():
-    d = http_json(CAIXA + "/programacao")
+def _um_concurso(d):
     jogos = sorted(d.get("listaJogos") or [], key=lambda j: j.get("nuSequencial") or 0)
     if len(jogos) != 14:
-        raise ValueError("a Caixa devolveu %d jogos" % len(jogos))
+        return None
     return {"numero": int(d.get("nuConcurso")), "fimApostas": "%s %sh" % (d.get("dataFimApostas") or "", d.get("horarioFimApostas") or ""),
             "jogos": [jogo_da_caixa(j) for j in jogos]}
+
+def programacao():
+    """Lista de concursos com grade publicada (a Caixa às vezes devolve um objeto, às vezes uma lista)."""
+    d = http_json(CAIXA + "/programacao")
+    itens = d if isinstance(d, list) else [d]
+    out = [c for c in (_um_concurso(x) for x in itens if isinstance(x, dict)) if c]
+    if not out:
+        raise ValueError("a Caixa não devolveu nenhuma grade completa")
+    return out
 
 def resultado(num):
     """None se o concurso ainda não foi apurado."""
@@ -189,10 +197,10 @@ def atualizar_concursos():
     global ERRO_GRADE
     conc = ler(CONC_FILE, {})
     try:
-        p = programacao()
-        k = str(p["numero"])
-        conc[k] = dict(conc.get(k, {}), **p)
-        print("Grade do concurso", k, "ok")
+        for p in programacao():
+            k = str(p["numero"])
+            conc[k] = dict(conc.get(k, {}), **p)
+            print("Grade do concurso", k, "ok")
     except Exception as e:
         ERRO_GRADE = str(e)[:300]
         print("Grade: não consegui buscar (%s)" % e)
