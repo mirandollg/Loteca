@@ -1,1 +1,134 @@
-{}
+{
+ "atletico-mg": {
+  "nome": "Atlético/MG",
+  "arquivo": "escudos/atletico-mg.png",
+  "origem": "https://escudosfc.com.br/images/atletico.png",
+  "achado": "Atlético Mineiro"
+ },
+ "bahia-ba": {
+  "nome": "Bahia/BA",
+  "arquivo": "escudos/bahia-ba.png",
+  "origem": "https://escudosfc.com.br/images/bahia.png",
+  "achado": "Bahia"
+ },
+ "corinthians-sp": {
+  "nome": "Corinthians/SP",
+  "arquivo": "escudos/corinthians-sp.png",
+  "origem": "https://escudosfc.com.br/images/corinthians.png",
+  "achado": "Corinthians"
+ },
+ "crystal-palace": {
+  "nome": "Crystal Palace",
+  "arquivo": "escudos/crystal-palace.png",
+  "origem": "https://escudosfc.com.br/images/crystalpalace.png",
+  "achado": "Crystal Palace"
+ },
+ "flamengo-rj": {
+  "nome": "Flamengo/RJ",
+  "arquivo": "escudos/flamengo-rj.png",
+  "origem": "https://escudosfc.com.br/images/fla.png",
+  "achado": "Flamengo"
+ },
+ "fluminense-rj": {
+  "nome": "Fluminense/RJ",
+  "arquivo": "escudos/fluminense-rj.png",
+  "origem": "https://escudosfc.com.br/images/fluminense.png",
+  "achado": "Fluminense"
+ },
+ "gremio-rs": {
+  "nome": "Grêmio/RS",
+  "arquivo": "escudos/gremio-rs.png",
+  "origem": "https://escudosfc.com.br/images/gremio.png",
+  "achado": "Grêmio"
+ },
+ "internacional-rs": {
+  "nome": "Internacional/RS",
+  "arquivo": "escudos/internacional-rs.png",
+  "origem": "https://escudosfc.com.br/images/interrs.png",
+  "achado": "Internacional"
+ },
+ "juventus": {
+  "nome": "Juventus",
+  "arquivo": "escudos/juventus.png",
+  "origem": "https://escudosfc.com.br/images/juventus_ac.png",
+  "achado": "Juventus"
+ },
+ "liverpool": {
+  "nome": "Liverpool",
+  "arquivo": "escudos/liverpool.png",
+  "origem": "https://escudosfc.com.br/images/liverpool.png",
+  "achado": "Liverpool"
+ },
+ "mirassol-sp": {
+  "nome": "Mirassol/SP",
+  "arquivo": "escudos/mirassol-sp.png",
+  "origem": "https://escudosfc.com.br/images/mirassol_mt.png",
+  "achado": "Mirassol"
+ },
+ "monza": {
+  "nome": "Monza",
+  "arquivo": "escudos/monza.png",
+  "origem": "https://escudosfc.com.br/images/monza.png",
+  "achado": "Monza"
+ },
+ "nautico-pe": {
+  "nome": "Náutico/PE",
+  "arquivo": "escudos/nautico-pe.png",
+  "origem": "https://escudosfc.com.br/images/nautico.png",
+  "achado": "Nautico"
+ },
+ "osasuna": {
+  "nome": "Osasuna",
+  "arquivo": "escudos/osasuna.png",
+  "origem": "https://escudosfc.com.br/images/osasuna.png",
+  "achado": "Osasuna"
+ },
+ "palmeiras-sp": {
+  "nome": "Palmeiras/SP",
+  "arquivo": "escudos/palmeiras-sp.png",
+  "origem": "https://escudosfc.com.br/images/palmeiras.png",
+  "achado": "Palmeiras"
+ },
+ "real-madrid": {
+  "nome": "Real Madrid",
+  "arquivo": "escudos/real-madrid.png",
+  "origem": "https://escudosfc.com.br/images/real_mad_arg.png",
+  "achado": "Real Madrid"
+ },
+ "remo-pa": {
+  "nome": "Remo/PA",
+  "arquivo": "escudos/remo-pa.png",
+  "origem": "https://escudosfc.com.br/images/remo.png",
+  "achado": "Remo"
+ },
+ "santos-sp": {
+  "nome": "Santos/SP",
+  "arquivo": "escudos/santos-sp.png",
+  "origem": "https://escudosfc.com.br/images/santos.png",
+  "achado": "Santos"
+ },
+ "sao-paulo-sp": {
+  "nome": "São Paulo/SP",
+  "arquivo": "escudos/sao-paulo-sp.png",
+  "origem": "https://escudosfc.com.br/images/saopaulo.png",
+  "achado": "São Paulo"
+ },
+ "vasco-da-gama-rj": {
+  "nome": "Vasco da Gama/RJ",
+  "arquivo": "escudos/vasco-da-gama-rj.png",
+  "origem": "https://escudosfc.com.br/images/vasco.png",
+  "achado": "Vasco da Gama"
+ },
+ "vila-nova-go": {
+  "nome": "Vila Nova/GO",
+  "arquivo": "escudos/vila-nova-go.png",
+  "origem": "https://escudosfc.com.br/images/vilanova.png",
+  "achado": "Vila Nova"
+ },
+ "vitoria-ba": {
+  "nome": "Vitória/BA",
+  "arquivo": "escudos/vitoria-ba.jpg",
+  "origem": "https://escudosfc.com.br/images/vitoria_rug.jpg",
+  "achado": "Vitória"
+ }
+}
