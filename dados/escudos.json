@@ -196,5 +196,17 @@
   "arquivo": "escudos/sevilla.png",
   "origem": "https://escudosfc.com.br/images/sevilla.png",
   "achado": "Sevilla"
+ },
+ "manchester-city": {
+  "nome": "Manchester City",
+  "arquivo": "escudos/manchester-city.png",
+  "origem": "https://escudosfc.com.br/images/man_city.png",
+  "achado": "Manchester City-ING"
+ },
+ "nottingham-forest": {
+  "nome": "Nottingham Forest",
+  "arquivo": "escudos/nottingham-forest.png",
+  "origem": "https://escudosfc.com.br/images/nott.png",
+  "achado": "Nottingham Forest"
  }
 }
