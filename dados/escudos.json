@@ -208,5 +208,59 @@
   "arquivo": "escudos/nottingham-forest.png",
   "origem": "https://escudosfc.com.br/images/nott.png",
   "achado": "Nottingham Forest"
+ },
+ "atletico-madrid": {
+  "nome": "Atlético Madrid",
+  "arquivo": "escudos/atletico-madrid.png",
+  "origem": "https://escudosfc.com.br/images/atl.png",
+  "achado": "Atlético Madrid"
+ },
+ "barcelona": {
+  "nome": "Barcelona",
+  "arquivo": "escudos/barcelona.png",
+  "origem": "https://escudosfc.com.br/images/barcelona_pe.png",
+  "achado": "Barcelona"
+ },
+ "boca-juniors": {
+  "nome": "Boca Juniors",
+  "arquivo": "escudos/boca-juniors.png",
+  "origem": "https://escudosfc.com.br/images/boca_azul_arg.png",
+  "achado": "Boca Juniors"
+ },
+ "cuiaba-mt": {
+  "nome": "Cuiabá/MT",
+  "arquivo": "escudos/cuiaba-mt.jpg",
+  "origem": "https://escudosfc.com.br/images/cuiaba_rug.jpg",
+  "achado": "Cuiabá"
+ },
+ "feyenoord": {
+  "nome": "Feyenoord",
+  "arquivo": "escudos/feyenoord.png",
+  "origem": "https://escudosfc.com.br/images/feyer.png",
+  "achado": "Feyenoord"
+ },
+ "galatasaray": {
+  "nome": "Galatasaray",
+  "arquivo": "escudos/galatasaray.png",
+  "origem": "https://escudosfc.com.br/images/galata.png",
+  "achado": "Galatasaray"
+ },
+ "lille": {
+  "nome": "Lille",
+  "arquivo": "escudos/lille.png",
+  "origem": "https://escudosfc.com.br/images/lille_bel.png",
+  "achado": "Lille"
+ },
+ "londrina-pr": {
+  "nome": "Londrina/PR",
+  "arquivo": "escudos/londrina-pr.jpg",
+  "origem": "https://escudosfc.com.br/images/londrina_rug.jpg",
+  "achado": "Londrina"
+ },
+ "psv-eindhoven": {
+  "nome": "Psv Eindhoven",
+  "arquivo": "escudos/psv-eindhoven.png",
+  "origem": "https://escudosfc.com.br/images/psv.png",
+  "achado": "PSV Eindhoven"
  }
 }
