@@ -262,5 +262,41 @@
   "arquivo": "escudos/psv-eindhoven.png",
   "origem": "https://escudosfc.com.br/images/psv.png",
   "achado": "PSV Eindhoven"
+ },
+ "athletic-bilbao": {
+  "nome": "Athletic Bilbao",
+  "arquivo": "escudos/athletic-bilbao.png",
+  "origem": "https://escudosfc.com.br/images/athletic.png",
+  "achado": "Athletic Bilbao"
+ },
+ "atletico-go": {
+  "nome": "Atlético/GO",
+  "arquivo": "escudos/atletico-go.png",
+  "origem": "https://escudosfc.com.br/images/atlego.png",
+  "achado": "Atletico Goianiense"
+ },
+ "crb-al": {
+  "nome": "Crb/AL",
+  "arquivo": "escudos/crb-al.gif",
+  "origem": "https://escudosfc.com.br/images/crb.gif",
+  "achado": "CRB"
+ },
+ "getafe": {
+  "nome": "Getafe",
+  "arquivo": "escudos/getafe.png",
+  "origem": "https://escudosfc.com.br/images/getafe.png",
+  "achado": "Getafe"
+ },
+ "lecce": {
+  "nome": "Lecce",
+  "arquivo": "escudos/lecce.gif",
+  "origem": "https://escudosfc.com.br/images/lecce.gif",
+  "achado": "Lecce"
+ },
+ "sao-bernardo-sp": {
+  "nome": "São Bernardo/SP",
+  "arquivo": "escudos/sao-bernardo-sp.png",
+  "origem": "https://escudosfc.com.br/images/sao_bernarndo_sp.png",
+  "achado": "São Bernardo"
  }
 }
