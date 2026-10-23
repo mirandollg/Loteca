@@ -298,5 +298,23 @@
   "arquivo": "escudos/sao-bernardo-sp.png",
   "origem": "https://escudosfc.com.br/images/sao_bernarndo_sp.png",
   "achado": "São Bernardo"
+ },
+ "brentford": {
+  "nome": "Brentford",
+  "arquivo": "escudos/brentford.png",
+  "origem": "https://escudosfc.com.br/images/brentford.png",
+  "achado": "Brentford"
+ },
+ "napoli": {
+  "nome": "Napoli",
+  "arquivo": "escudos/napoli.png",
+  "origem": "https://escudosfc.com.br/images/napoli_sc.png",
+  "achado": "Napoli"
+ },
+ "udinese": {
+  "nome": "Udinese",
+  "arquivo": "escudos/udinese.png",
+  "origem": "https://escudosfc.com.br/images/udinese.png",
+  "achado": "Udinese"
  }
 }
