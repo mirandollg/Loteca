@@ -316,5 +316,35 @@
   "arquivo": "escudos/udinese.png",
   "origem": "https://escudosfc.com.br/images/udinese.png",
   "achado": "Udinese"
+ },
+ "america-mg": {
+  "nome": "América/MG",
+  "arquivo": "escudos/america-mg.png",
+  "origem": "https://escudosfc.com.br/images/ammg.png",
+  "achado": "América-MG"
+ },
+ "avai-sc": {
+  "nome": "Avaí/SC",
+  "arquivo": "escudos/avai-sc.png",
+  "origem": "https://escudosfc.com.br/images/avai_kinderman_fem.png",
+  "achado": "Avaí"
+ },
+ "juventude-rs": {
+  "nome": "Juventude/RS",
+  "arquivo": "escudos/juventude-rs.png",
+  "origem": "https://escudosfc.com.br/images/juventude.png",
+  "achado": "Juventude"
+ },
+ "operario-pr": {
+  "nome": "Operário/PR",
+  "arquivo": "escudos/operario-pr.png",
+  "origem": "https://escudosfc.com.br/images/operario_pr.png",
+  "achado": "Operário"
+ },
+ "real-sociedad": {
+  "nome": "Real Sociedad",
+  "arquivo": "escudos/real-sociedad.jpg",
+  "origem": "https://escudosfc.com.br/images/real_sociedad_arg.jpg",
+  "achado": "Real Sociedad"
  }
 }
