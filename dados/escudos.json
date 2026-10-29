@@ -346,5 +346,23 @@
   "arquivo": "escudos/real-sociedad.jpg",
   "origem": "https://escudosfc.com.br/images/real_sociedad_arg.jpg",
   "achado": "Real Sociedad"
+ },
+ "hoffenheim": {
+  "nome": "Hoffenheim",
+  "arquivo": "escudos/hoffenheim.png",
+  "origem": "https://escudosfc.com.br/images/hoffenheim_ger.png",
+  "achado": "Hoffenheim II"
+ },
+ "lyon": {
+  "nome": "Lyon",
+  "arquivo": "escudos/lyon.png",
+  "origem": "https://escudosfc.com.br/images/lyon.png",
+  "achado": "Lyon"
+ },
+ "sparta-praga": {
+  "nome": "Sparta Praga",
+  "arquivo": "escudos/sparta-praga.gif",
+  "origem": "https://escudosfc.com.br/images/spartap.gif",
+  "achado": "Sparta Praga"
  }
 }
