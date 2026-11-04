@@ -364,5 +364,29 @@
   "arquivo": "escudos/sparta-praga.gif",
   "origem": "https://escudosfc.com.br/images/spartap.gif",
   "achado": "Sparta Praga"
+ },
+ "ceara-ce": {
+  "nome": "Ceará/CE",
+  "arquivo": "escudos/ceara-ce.png",
+  "origem": "https://escudosfc.com.br/images/ceara.png",
+  "achado": "Ceará"
+ },
+ "chelsea": {
+  "nome": "Chelsea",
+  "arquivo": "escudos/chelsea.png",
+  "origem": "https://escudosfc.com.br/images/chelsea_fn.png",
+  "achado": "Chelsea"
+ },
+ "goias-go": {
+  "nome": "Goiás/GO",
+  "arquivo": "escudos/goias-go.png",
+  "origem": "https://escudosfc.com.br/images/goias.png",
+  "achado": "Goiás"
+ },
+ "ponte-preta-sp": {
+  "nome": "Ponte Preta/SP",
+  "arquivo": "escudos/ponte-preta-sp.gif",
+  "origem": "https://escudosfc.com.br/images/pontepreta.gif",
+  "achado": "Ponte Preta"
  }
 }
