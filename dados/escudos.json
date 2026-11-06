@@ -388,5 +388,11 @@
   "arquivo": "escudos/ponte-preta-sp.gif",
   "origem": "https://escudosfc.com.br/images/pontepreta.gif",
   "achado": "Ponte Preta"
+ },
+ "cazaquistao": {
+  "nome": "Cazaquistao",
+  "arquivo": "escudos/cazaquistao.jpg",
+  "origem": "https://escudosfc.com.br/images/kazak_rug.jpg",
+  "achado": "Cazaquistão"
  }
 }
