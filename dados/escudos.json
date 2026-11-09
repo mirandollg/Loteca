@@ -394,5 +394,17 @@
   "arquivo": "escudos/cazaquistao.jpg",
   "origem": "https://escudosfc.com.br/images/kazak_rug.jpg",
   "achado": "Cazaquistão"
+ },
+ "malta": {
+  "nome": "Malta",
+  "arquivo": "escudos/malta.jpg",
+  "origem": "https://escudosfc.com.br/images/malta_rug.jpg",
+  "achado": "Malta"
+ },
+ "quenia": {
+  "nome": "Quenia",
+  "arquivo": "escudos/quenia.jpg",
+  "origem": "https://escudosfc.com.br/images/kenya.jpg",
+  "achado": "Quênia"
  }
 }
