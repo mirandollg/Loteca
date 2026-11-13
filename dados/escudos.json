@@ -412,5 +412,11 @@
   "arquivo": "escudos/rayo-vallecano.png",
   "origem": "https://escudosfc.com.br/images/rayo.png",
   "achado": "Rayo Vallecano"
+ },
+ "malaga": {
+  "nome": "Malaga",
+  "arquivo": "escudos/malaga.png",
+  "origem": "https://escudosfc.com.br/images/malaga.png",
+  "achado": "Málaga"
  }
 }
