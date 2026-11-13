@@ -406,5 +406,11 @@
   "arquivo": "escudos/quenia.jpg",
   "origem": "https://escudosfc.com.br/images/kenya.jpg",
   "achado": "Quênia"
+ },
+ "rayo-vallecano": {
+  "nome": "Rayo Vallecano",
+  "arquivo": "escudos/rayo-vallecano.png",
+  "origem": "https://escudosfc.com.br/images/rayo.png",
+  "achado": "Rayo Vallecano"
  }
 }
