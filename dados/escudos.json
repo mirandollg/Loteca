@@ -418,5 +418,17 @@
   "arquivo": "escudos/malaga.png",
   "origem": "https://escudosfc.com.br/images/malaga.png",
   "achado": "Málaga"
+ },
+ "estudiantes": {
+  "nome": "Estudiantes",
+  "arquivo": "escudos/estudiantes.png",
+  "origem": "https://escudosfc.com.br/images/estudiantes_riocuarto.png",
+  "achado": "Estudiantes"
+ },
+ "everton": {
+  "nome": "Everton",
+  "arquivo": "escudos/everton.png",
+  "origem": "https://escudosfc.com.br/images/everton_arg.png",
+  "achado": "Everton"
  }
 }
