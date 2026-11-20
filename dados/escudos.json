@@ -430,5 +430,53 @@
   "arquivo": "escudos/everton.png",
   "origem": "https://escudosfc.com.br/images/everton_arg.png",
   "achado": "Everton"
+ },
+ "armenia": {
+  "nome": "Armênia",
+  "arquivo": "escudos/armenia.png",
+  "origem": "https://escudosfc.com.br/images/armenia.png",
+  "achado": "Armênia"
+ },
+ "bournemouth": {
+  "nome": "Bournemouth",
+  "arquivo": "escudos/bournemouth.png",
+  "origem": "https://escudosfc.com.br/images/bournemouth.png",
+  "achado": "Bournemouth"
+ },
+ "brighton": {
+  "nome": "Brighton",
+  "arquivo": "escudos/brighton.png",
+  "origem": "https://escudosfc.com.br/images/brighton.png",
+  "achado": "Brighton & Hove Albion"
+ },
+ "ferencvaros": {
+  "nome": "Ferencváros",
+  "arquivo": "escudos/ferencvaros.png",
+  "origem": "https://escudosfc.com.br/images/ferencvaros.png",
+  "achado": "Ferencvaros"
+ },
+ "fiorentina": {
+  "nome": "Fiorentina",
+  "arquivo": "escudos/fiorentina.jpg",
+  "origem": "https://escudosfc.com.br/images/fiorentina_praia_cabo.jpg",
+  "achado": "Fiorentina"
+ },
+ "gibraltar": {
+  "nome": "Gibraltar",
+  "arquivo": "escudos/gibraltar.png",
+  "origem": "https://escudosfc.com.br/images/gibraltar.png",
+  "achado": "Gibraltar"
+ },
+ "red-bull-salzburg": {
+  "nome": "Red Bull Salzburg",
+  "arquivo": "escudos/red-bull-salzburg.png",
+  "origem": "https://escudosfc.com.br/images/salzburg2.png",
+  "achado": "Red Bull Salzburg"
+ },
+ "sunderland": {
+  "nome": "Sunderland",
+  "arquivo": "escudos/sunderland.png",
+  "origem": "https://escudosfc.com.br/images/sunderland.png",
+  "achado": "Sunderland"
  }
 }
