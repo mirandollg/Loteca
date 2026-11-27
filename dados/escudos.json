@@ -478,5 +478,29 @@
   "arquivo": "escudos/sunderland.png",
   "origem": "https://escudosfc.com.br/images/sunderland.png",
   "achado": "Sunderland"
+ },
+ "anderlecht": {
+  "nome": "Anderlecht",
+  "arquivo": "escudos/anderlecht.png",
+  "origem": "https://escudosfc.com.br/images/anderlecht.png",
+  "achado": "Anderlecht"
+ },
+ "lazio": {
+  "nome": "Lazio",
+  "arquivo": "escudos/lazio.png",
+  "origem": "https://escudosfc.com.br/images/lazio.png",
+  "achado": "Lazio"
+ },
+ "leeds-united": {
+  "nome": "Leeds United",
+  "arquivo": "escudos/leeds-united.png",
+  "origem": "https://escudosfc.com.br/images/leeds.png",
+  "achado": "Leeds United"
+ },
+ "parma": {
+  "nome": "Parma",
+  "arquivo": "escudos/parma.png",
+  "origem": "https://escudosfc.com.br/images/parma.png",
+  "achado": "Parma"
  }
 }
